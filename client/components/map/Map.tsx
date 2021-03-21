@@ -77,7 +77,12 @@ export const Map: FC<MapProps> = (props) => {
   );
 };
 
-export const Marker: FC<MarkerProps> = ({ latitude, longitude, onMove }) => {
+export const Marker: FC<MarkerProps> = ({
+  latitude,
+  longitude,
+  onMove,
+  onClick,
+}) => {
   const map = useContext(MapContext);
   useEffect(() => {
     if (!map) return;
@@ -85,6 +90,8 @@ export const Marker: FC<MarkerProps> = ({ latitude, longitude, onMove }) => {
       draggable: true,
       autoPan: true,
     }).addTo(map);
+
+    marker.on("click", onClick);
 
     marker.on("move", (e) => {
       onMove(e.latlng);

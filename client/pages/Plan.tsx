@@ -86,6 +86,7 @@ export const Plan: React.FC<PlanProps> = ({}) => {
         >
           {waypoints.map((waypoint) => (
             <Marker
+              onClick={() => handleDelete(waypoint.id)}
               onMove={(latlng) => {
                 handleMove(latlng, waypoint.id);
               }}
