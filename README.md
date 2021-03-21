@@ -26,3 +26,5 @@ npm i
 npm start
 ```
 
+Code pushed to master is automatically deployed to heroku via Github Actions
+
