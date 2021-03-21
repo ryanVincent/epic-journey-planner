@@ -1,0 +1,9 @@
+.appHeader {
+  background-color: #09121b;
+  opacity: 0.8;
+  color: white;
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}

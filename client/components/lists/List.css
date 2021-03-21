@@ -1,0 +1,33 @@
+.dragged {
+  opacity: 0.8;
+  cursor: grabbing;
+}
+
+.covered {
+  border: 1px dashed grey;
+}
+
+.list {
+  list-style: none;
+  margin: unset;
+  padding: unset;
+}
+
+.item {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.draggable {
+  cursor: grab;
+}
+
+.draggable .dragHandle {
+  margin-right: 0.5rem;
+}
+
+.item button {
+  margin-left: auto;
+  color: white;
+}

@@ -1,0 +1,41 @@
+.sideBar {
+  background-color: #09121b;
+  color: white;
+  flex-basis: 20rem;
+  flex-grow: 1;
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+}
+
+h1 {
+  text-align: center;
+  font-size: large;
+  font-family: "Lobster", cursive;
+}
+
+.sideBar-footer {
+  margin-top: auto;
+}
+
+.sideBar ul.list {
+  overflow-y: auto;
+  margin-bottom: 2rem;
+}
+
+.sideBar-footer button {
+  background: #6aa127;
+  /* border: 2px solid #4d6b29b5; */
+  border-radius: 2px;
+  padding: 10px 15px;
+  width: 100%;
+  color: white;
+  box-shadow: -3px 3px 0px #344e15;
+}
+
+.sideBar-footer button:hover {
+  /* box-shadow: none; */
+  background: #75b32a;
+}
