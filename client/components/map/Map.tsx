@@ -1,18 +1,21 @@
 import React, { useEffect, useRef, useState, useContext, FC } from "react";
-import Leaflet from "leaflet";
+import Leaflet, { LeafletMouseEvent } from "leaflet";
 import "leaflet.locatecontrol";
 import "./Map.css";
+import { LatLng } from "../../state/waypoints";
 
 type MapProps = {
-  onClick: () => void;
+  onClick: (latlng: LatLng) => void;
 };
 
 type MarkerProps = {
   latitude: number;
   longitude: number;
+  onMove?: (latlng: LatLng) => void;
+  onClick?: (latlng: LatLng) => void;
 };
 
-export const MapContext = React.createContext();
+export const MapContext = React.createContext(null);
 
 const MapProvider = MapContext.Provider;
 
@@ -24,7 +27,6 @@ const useMap = (ref, { onClick }) => {
   };
 
   useEffect(() => {
-    // TODO extract to seperate TileLayer component
     const map = Leaflet.map(ref.current).setView([51.505, -0.09], 13);
     Leaflet.tileLayer(
       "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
@@ -91,11 +93,9 @@ export const Marker: FC<MarkerProps> = ({
       autoPan: true,
     }).addTo(map);
 
-    console.log("instanciating marker");
-
     marker.on("click", onClick);
 
-    marker.on("move", (e) => {
+    marker.on("move", (e: LeafletMouseEvent) => {
       onMove(e.latlng);
     });
 

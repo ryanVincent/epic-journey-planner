@@ -1,7 +1,11 @@
 import React, { FC } from "react";
 import "./SideBar.css";
 
-export const Sidebar: React.FC = ({ children, title }) => (
+type SidebarProps = {
+  title: string;
+};
+
+export const Sidebar: React.FC<SidebarProps> = ({ children, title }) => (
   <div className="sideBar">
     <h1>{title}</h1>
     {children}

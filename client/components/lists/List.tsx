@@ -1,4 +1,4 @@
-import React from "react";
+import React, { DragEvent } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faDumpster } from "@fortawesome/free-solid-svg-icons";
 
@@ -7,19 +7,20 @@ import { Button } from "../buttons/Button";
 import { classnames } from "../../utils";
 
 type ListProps = {
-  onReorder?: () => {};
+  onReorder?: (ids: string[]) => void;
   children;
 };
 
 type ListItemProps = {
   id: string;
   children: string;
-  onDelete?: () => {};
-  onDragStart?: () => {};
-  onDragEnd?: () => {};
-  onDragEnter?: () => {};
-  onDragLeave?: () => {};
-  onDragOver?: () => {};
+  onDelete?: (id: string) => void;
+  onDragStart?: () => void;
+  onDragEnd?: () => void;
+  onDragEnter?: () => void;
+  onDragLeave?: () => void;
+  onDragOver?: () => void;
+  onDrop?: (id: string, newId: string) => void;
   draggable?: boolean;
 };
 
@@ -64,8 +65,6 @@ export const ListItem: React.FC<ListItemProps> = ({
     onDrop(id, e.dataTransfer.getData("id"));
   };
 
-  // TODO: fix classnames, use enum for dragging state
-
   return (
     <li
       className={classnames(
@@ -75,7 +74,7 @@ export const ListItem: React.FC<ListItemProps> = ({
         draggedOver ? "covered" : ""
       )}
       onDrop={handleDrop}
-      onDragStart={(e: DragEvent) => {
+      onDragStart={(e: DragEvent<HTMLLIElement>) => {
         e.dataTransfer.setData("id", id);
         setIsDragged(true);
       }}

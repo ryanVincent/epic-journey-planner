@@ -27,6 +27,8 @@
   "devDependencies": {
     "@parcel/packager-raw-url": "^2.0.0-beta.2",
     "@parcel/transformer-webmanifest": "^2.0.0-beta.2",
+    "@types/leaflet": "^1.7.0",
+    "@types/react": "^17.0.3",
     "parcel": "^2.0.0-beta.2",
     "parcel-plugin-sw-cache": "^0.3.1",
     "workbox-cli": "^6.1.2"
