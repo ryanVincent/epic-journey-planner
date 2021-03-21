@@ -22,7 +22,7 @@ export const Line: FC<LineProps> = ({ waypoints }) => {
   }, [map]);
 
   useEffect(() => {
-    if (waypoints.length < 2) {
+    if (waypoints.length === 0) {
       return;
     }
     const points = waypoints.map((waypoint) => [waypoint.lat, waypoint.lng]);

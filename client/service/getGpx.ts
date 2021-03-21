@@ -21,7 +21,7 @@ export const getGPX = (name: string, waypoints: Waypoint[]) => {
     <trk>
       <name>${name}</name>
       <trkseg>
-        ${waypoints.map((waypoint) => seg(waypoint.lat, waypoint.long))}
+        ${waypoints.map((waypoint) => seg(waypoint.lat, waypoint.lng))}
       </trkseg>
     </trk>
   </gpx>`;

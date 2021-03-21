@@ -4,7 +4,7 @@ export type Waypoint = {
   id: string;
   title: string;
   lat: number;
-  long: number;
+  lng: number;
 };
 
 export type LatLng = {
@@ -56,7 +56,7 @@ export const reducer = createReducer<Waypoint[], Action>(
       ...waypoints,
       {
         id: `${action.payload.lat}-${
-          action.payload.long
+          action.payload.lng
         }-${new Date().toISOString()}`, // safer and neater to use `uuid` but avoiding additional libraries as per the spec
         ...action.payload,
       },

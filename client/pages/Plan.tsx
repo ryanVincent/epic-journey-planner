@@ -73,7 +73,7 @@ export const Plan: React.FC<PlanProps> = ({}) => {
                 );
               }}
             >
-              Download you Route
+              Download your Route
             </Button>
           </SideBarFooter>
         </Sidebar>
@@ -96,6 +96,19 @@ export const Plan: React.FC<PlanProps> = ({}) => {
           ))}
           <Line waypoints={waypoints} />
         </Map>
+        {mobile && (
+          <Button
+            variant="primary"
+            onClick={() => {
+              downloadFile(
+                getGPX("My Awesome Adventure", waypoints),
+                "my-awesome-adventure.gpx"
+              );
+            }}
+          >
+            Download your Route
+          </Button>
+        )}
       </Container>
     </Page>
   );

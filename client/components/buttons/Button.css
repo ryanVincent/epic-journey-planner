@@ -5,4 +5,9 @@ button {
 }
 
 button.primary {
+  background: #6aa127;
+  border-radius: 2px;
+  padding: 10px 15px;
+  color: white;
+  box-shadow: -3px 3px 0px #344e15;
 }
