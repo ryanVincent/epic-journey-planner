@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import "./Sidebar.css";
+import "./SideBar.css";
 
 export const Sidebar: React.FC = ({ children, title }) => (
   <div className="sideBar">
