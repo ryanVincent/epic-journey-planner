@@ -20,9 +20,7 @@ export const Plan: React.FC<PlanProps> = ({}) => {
   const [waypoints, dispatch] = useReducer(waypointReducer, []);
 
   const handleDelete = (id: string) => {
-    // TODO tidy this up
-    waypoints.splice(waypoints.map((item) => item.id).indexOf(id), 1);
-    dispatch(waypointActions.replace([...waypoints]));
+    dispatch(waypointActions.remove(id));
   };
 
   const handleAdd = (latlng, i) => {
@@ -86,7 +84,9 @@ export const Plan: React.FC<PlanProps> = ({}) => {
         >
           {waypoints.map((waypoint) => (
             <Marker
-              onClick={() => handleDelete(waypoint.id)}
+              onClick={() => {
+                handleDelete(waypoint.id);
+              }}
               onMove={(latlng) => {
                 handleMove(latlng, waypoint.id);
               }}

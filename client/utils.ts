@@ -22,7 +22,6 @@ export const createReducer = <State, Action extends AnyAction>(
 export const generateTitle = (i: number) => `#${i + 1}`;
 
 export const isMobile = () => {
-  console.log(window.matchMedia("(ma-width: 800px)").matches);
   return window.matchMedia("(max-width: 800px)").matches;
 };
 

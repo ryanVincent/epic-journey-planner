@@ -91,6 +91,8 @@ export const Marker: FC<MarkerProps> = ({
       autoPan: true,
     }).addTo(map);
 
+    console.log("instanciating marker");
+
     marker.on("click", onClick);
 
     marker.on("move", (e) => {
