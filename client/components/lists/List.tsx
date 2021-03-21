@@ -4,6 +4,7 @@ import { faBars, faDumpster } from "@fortawesome/free-solid-svg-icons";
 
 import "./List.css";
 import { Button } from "../buttons/Button";
+import { classnames } from "../../utils";
 
 type ListProps = {
   onReorder?: () => {};
@@ -67,15 +68,20 @@ export const ListItem: React.FC<ListItemProps> = ({
 
   return (
     <li
-      className={`item ${draggable ? "draggable" : ""} ${
-        dragged ? "dragged" : ""
-      } ${draggedOver ? "covered" : ""}`}
+      className={classnames(
+        "item",
+        draggable ? "draggable" : "",
+        dragged ? "dragged" : "",
+        draggedOver ? "covered" : ""
+      )}
       onDrop={handleDrop}
       onDragStart={(e: DragEvent) => {
         e.dataTransfer.setData("id", id);
         setIsDragged(true);
       }}
-      onDragEnd={() => setIsDragged(false)}
+      onDragEnd={() => {
+        setIsDragged(false);
+      }}
       onDragOver={(e: DragEvent) => {
         e.preventDefault();
         setIsDraggedOver(true);

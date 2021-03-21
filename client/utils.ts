@@ -25,3 +25,6 @@ export const isMobile = () => {
   console.log(window.matchMedia("(ma-width: 800px)").matches);
   return window.matchMedia("(max-width: 800px)").matches;
 };
+
+export const classnames = (...classnames) =>
+  classnames.filter(Boolean).join(" ");
