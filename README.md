@@ -2,6 +2,12 @@
 
 Plan your own epic cross country adventure with this open source gpx generator. 
 
+## Features
+
+- Add / Remove / Rearrange / Move waypoints
+- Download GPX file of your route
+- Download and install as an app (via PWA)
+
 ## Demo 
 
 [Click here](https://epic-journey-planner.herokuapp.com/) to see the app in action!
