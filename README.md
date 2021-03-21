@@ -1,4 +1,4 @@
-# Epic Adventure Planner 
+# Epic Adventure Planner 🤘
 
 Plan your own epic cross country adventure with this open source gpx generator. 
 
