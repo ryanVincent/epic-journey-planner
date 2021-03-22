@@ -62,6 +62,7 @@ export const ListItem: React.FC<ListItemProps> = ({
   const [draggedOver, setIsDraggedOver] = React.useState(false);
 
   const handleDrop = (e: DragEvent) => {
+    setIsDraggedOver(false);
     onDrop(id, e.dataTransfer.getData("id"));
   };
 
