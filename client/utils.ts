@@ -25,5 +25,16 @@ export const isMobile = () => {
   return window.matchMedia("(max-width: 800px)").matches;
 };
 
+export const useMobile = () => {
+  const [mobile, setIsMobile] = useState(isMobile());
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setIsMobile(isMobile());
+    });
+  });
+
+  return mobile;
+};
+
 export const classnames = (...classnames) =>
   classnames.filter(Boolean).join(" ");

@@ -8,7 +8,7 @@ import {
   reducer as waypointReducer,
   actions as waypointActions,
 } from "../state/waypoints";
-import { generateTitle, isMobile } from "../utils";
+import { generateTitle, isMobile, useMobile } from "../utils";
 import { Line } from "../components/map/Line";
 import { Button } from "../components/buttons/Button";
 import { getGPX, downloadFile } from "../service/getGpx";
@@ -43,7 +43,7 @@ export const Plan: React.FC<PlanProps> = ({}) => {
     dispatch(waypointActions.replace(reorderedWaypoints));
   };
 
-  const mobile = isMobile();
+  const mobile = useMobile();
 
   return (
     <Page>
@@ -67,7 +67,8 @@ export const Plan: React.FC<PlanProps> = ({}) => {
               onClick={() => {
                 downloadFile(
                   getGPX("My Awesome Adventure", waypoints),
-                  "my-awesome-adventure.gpx"
+                  "my-awesome-adventure.gpx",
+                  "application/gpx+xml"
                 );
               }}
             >
@@ -103,7 +104,8 @@ export const Plan: React.FC<PlanProps> = ({}) => {
             onClick={() => {
               downloadFile(
                 getGPX("My Awesome Adventure", waypoints),
-                "my-awesome-adventure.gpx"
+                "my-awesome-adventure.gpx",
+                "application/gpx+xml"
               );
             }}
           >
