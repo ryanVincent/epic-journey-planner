@@ -25,7 +25,6 @@ export const Plan: React.FC = () => {
     dispatch(
       waypointActions.add({
         ...latlng,
-        title: `Waypoint ${generateTitle(i)}`,
       })
     );
   };
@@ -49,13 +48,13 @@ export const Plan: React.FC = () => {
       {!mobile && (
         <Sidebar title="Epic Adventure Planner 🤘">
           <List onReorder={handleReorder}>
-            {waypoints.map((item) => (
+            {waypoints.map((item, i) => (
               <ListItem
                 key={item.id}
                 id={item.id}
                 onDelete={(id) => handleDelete(id)}
               >
-                {item.title}
+                {generateTitle(i)}
               </ListItem>
             ))}
           </List>
@@ -81,9 +80,9 @@ export const Plan: React.FC = () => {
             handleAdd(latlng, waypoints.length);
           }}
         >
-          {waypoints.map((waypoint) => (
+          {waypoints.map((waypoint, i) => (
             <Marker
-              id={waypoint.title.split("#")[1]}
+              id={(i + 1).toString()}
               onClick={() => {
                 handleDelete(waypoint.id);
               }}

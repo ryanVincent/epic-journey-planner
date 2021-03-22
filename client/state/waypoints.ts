@@ -2,7 +2,6 @@ import { createReducer } from "../utils";
 
 export type Waypoint = {
   id: string;
-  title: string;
   lat: number;
   lng: number;
 };

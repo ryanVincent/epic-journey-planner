@@ -88,10 +88,17 @@ export const Marker: FC<MarkerProps> = ({
   onClick,
 }) => {
   const map = useContext(MapContext);
+
+  const [marker, setMarker] = useState(null);
+
+  useEffect(() => {
+    const icon = Leaflet.divIcon({ className: "marker", html: id });
+    marker?.setIcon(icon);
+  }, [marker, id]);
+
   useEffect(() => {
     if (!map) return;
     const marker = Leaflet.marker([latitude, longitude], {
-      icon: Leaflet.divIcon({ className: "marker", html: id }),
       draggable: true,
       autoPan: true,
     }).addTo(map);
@@ -103,6 +110,8 @@ export const Marker: FC<MarkerProps> = ({
     });
 
     marker.on("moveend", () => {});
+
+    setMarker(marker);
     return () => {
       map.removeLayer(marker);
     };

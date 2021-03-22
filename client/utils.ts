@@ -19,7 +19,7 @@ export const createReducer = <State, Action extends AnyAction>(
 ) => (state: State = initialState, action): State =>
   handlers[action.type](state, action);
 
-export const generateTitle = (i: number) => `#${i + 1}`;
+export const generateTitle = (i: number) => `Waypoint #${i + 1}`;
 
 export const isMobile = () => {
   return window.matchMedia("(max-width: 800px)").matches;
