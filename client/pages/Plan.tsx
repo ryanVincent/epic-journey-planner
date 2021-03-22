@@ -37,9 +37,9 @@ export const Plan: React.FC<PlanProps> = ({}) => {
   };
 
   const handleReorder = (ids) => {
-    const reorderedWaypoints = [
-      ...waypoints.sort((a, b) => ids.indexOf(a.id) - ids.indexOf(b.id)),
-    ];
+    const reorderedWaypoints = [...waypoints].sort(
+      (a, b) => ids.indexOf(a.id) - ids.indexOf(b.id)
+    );
     dispatch(waypointActions.replace(reorderedWaypoints));
   };
 
