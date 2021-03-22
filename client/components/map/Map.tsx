@@ -11,6 +11,7 @@ type MapProps = {
 type MarkerProps = {
   latitude: number;
   longitude: number;
+  id: string;
   onMove?: (latlng: LatLng) => void;
   onClick?: (latlng: LatLng) => void;
 };
@@ -82,6 +83,7 @@ export const Map: FC<MapProps> = (props) => {
 export const Marker: FC<MarkerProps> = ({
   latitude,
   longitude,
+  id,
   onMove,
   onClick,
 }) => {
@@ -89,6 +91,7 @@ export const Marker: FC<MarkerProps> = ({
   useEffect(() => {
     if (!map) return;
     const marker = Leaflet.marker([latitude, longitude], {
+      icon: Leaflet.divIcon({ className: "marker", html: id }),
       draggable: true,
       autoPan: true,
     }).addTo(map);

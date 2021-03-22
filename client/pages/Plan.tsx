@@ -83,6 +83,7 @@ export const Plan: React.FC = () => {
         >
           {waypoints.map((waypoint) => (
             <Marker
+              id={waypoint.title.split("#")[1]}
               onClick={() => {
                 handleDelete(waypoint.id);
               }}
