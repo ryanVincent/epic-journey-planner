@@ -100,6 +100,7 @@ export const Marker: FC<MarkerProps> = ({
     if (!map) return;
     const marker = Leaflet.marker([latitude, longitude], {
       draggable: true,
+      icon: Leaflet.divIcon({ className: "marker", html: id }),
       autoPan: true,
     }).addTo(map);
 
