@@ -70,7 +70,7 @@ export const Plan: React.FC = () => {
                 );
               }}
             >
-              Download your Route
+              Download your route
             </Button>
           </SideBarFooter>
         </Sidebar>
@@ -107,7 +107,7 @@ export const Plan: React.FC = () => {
               );
             }}
           >
-            Download your Route
+            Download your route
           </Button>
         )}
       </Container>
