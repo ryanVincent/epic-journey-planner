@@ -14,9 +14,7 @@ import { Button } from "../components/buttons/Button";
 import { getGPX, downloadFile } from "../service/getGpx";
 import { Header } from "../components/layout/Header/Header";
 
-type PlanProps = {};
-
-export const Plan: React.FC<PlanProps> = ({}) => {
+export const Plan: React.FC = () => {
   const [waypoints, dispatch] = useReducer(waypointReducer, []);
 
   const handleDelete = (id: string) => {
