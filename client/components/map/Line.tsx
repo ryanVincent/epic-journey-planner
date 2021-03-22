@@ -6,7 +6,6 @@ import { MapContext } from "./Map";
 type LineProps = {
   waypoints: Waypoint[];
 };
-// TODO, USE CONTEXT TO PASS AROUND MAP
 export const Line: FC<LineProps> = ({ waypoints }) => {
   const [line, setLine] = useState();
   const map = useContext(MapContext);
