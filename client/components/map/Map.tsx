@@ -110,9 +110,8 @@ export const Marker: FC<MarkerProps> = ({
       onMove(e.latlng);
     });
 
-    marker.on("moveend", () => {});
-
     setMarker(marker);
+
     return () => {
       map.removeLayer(marker);
     };
